@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MyToDo.Api/MyToDo.Api.csproj" Id="cf891487-a5e4-48ea-9584-7d6e2e129b33" />
+  <Project Path="MyToDo/MyToDo.csproj" />
+</Solution>
