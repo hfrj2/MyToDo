@@ -41,6 +41,11 @@ namespace MyToDo.Views
                 else
                     this.WindowState = WindowState.Normal;
             };
+
+            menuBar.SelectionChanged += (s, e) =>
+            {
+                drawHost.IsLeftDrawerOpen = false;
+            };
         }
     }
 }
