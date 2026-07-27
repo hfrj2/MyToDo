@@ -32,6 +32,7 @@ namespace MyToDo.ViewModels
 
         }
 
+        
 
         private void Navigate (MenuBar obj)
         {
