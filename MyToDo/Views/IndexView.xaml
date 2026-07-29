@@ -5,11 +5,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:prism="http://prismlibrary.com/"
     d:Height="450"
     d:Width="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    FontFamily="微软雅黑"
+    FontFamily="仿宋"
     mc:Ignorable="d">
     <UserControl.Resources>
         <SolidColorBrush x:Key="WhiteBrush" Color="White" />
@@ -36,66 +37,68 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border
-                        Margin="10"
-                        Background="{Binding Color}"
-                        CornerRadius="10">
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Effect">
-                                            <Setter.Value>
-                                                <DropShadowEffect
-                                                    BlurRadius="10"
-                                                    ShadowDepth="1"
-                                                    Color="#DDDDDD" />
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Border.Style>
-                        <Grid>
-                            <StackPanel>
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Margin="12,8,8,4"
-                                    Foreground="{StaticResource WhiteBrush}"
-                                    Kind="{Binding Icon}" />
-                                <TextBlock
-                                    Margin="8,4,8,8"
-                                    FontSize="20"
-                                    Foreground="{StaticResource WhiteBrush}"
-                                    Text="{Binding Title}" />
-                                <TextBlock
-                                    Margin="8,6,8,8"
-                                    FontSize="30"
-                                    FontWeight="Bold"
-                                    Foreground="{StaticResource WhiteBrush}"
-                                    Text="{Binding Content}" />
-                            </StackPanel>
-                            <Canvas ClipToBounds="True">
-                                <Border
-                                    Canvas.Top="10"
-                                    Canvas.Right="-30"
-                                    Width="120"
-                                    Height="120"
-                                    Background="#FFFFFF"
-                                    CornerRadius="50"
-                                    Opacity="0.1" />
-                                <Border
-                                    Canvas.Top="60"
-                                    Canvas.Right="-0"
-                                    Width="120"
-                                    Height="120"
-                                    Background="#FFFFFF"
-                                    CornerRadius="50"
-                                    Opacity="0.1" />
-                            </Canvas>
-                        </Grid>
-                    </Border>
+                    <md:TransitioningContent OpeningEffect="{md:TransitionEffect Kind=SlideInFromLeft, Duration=0:0:1}">
+                        <Border
+                            Margin="10"
+                            Background="{Binding Color}"
+                            CornerRadius="10">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
+                                                        BlurRadius="10"
+                                                        ShadowDepth="1"
+                                                        Color="#DDDDDD" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid>
+                                <StackPanel>
+                                    <materialDesign:PackIcon
+                                        Width="30"
+                                        Height="30"
+                                        Margin="12,8,8,4"
+                                        Foreground="{StaticResource WhiteBrush}"
+                                        Kind="{Binding Icon}" />
+                                    <TextBlock
+                                        Margin="8,4,8,8"
+                                        FontSize="20"
+                                        Foreground="{StaticResource WhiteBrush}"
+                                        Text="{Binding Title}" />
+                                    <TextBlock
+                                        Margin="8,6,8,8"
+                                        FontSize="30"
+                                        FontWeight="Bold"
+                                        Foreground="{StaticResource WhiteBrush}"
+                                        Text="{Binding Content}" />
+                                </StackPanel>
+                                <Canvas ClipToBounds="True">
+                                    <Border
+                                        Canvas.Top="10"
+                                        Canvas.Right="-30"
+                                        Width="120"
+                                        Height="120"
+                                        Background="#FFFFFF"
+                                        CornerRadius="50"
+                                        Opacity="0.1" />
+                                    <Border
+                                        Canvas.Top="60"
+                                        Canvas.Right="-0"
+                                        Width="120"
+                                        Height="120"
+                                        Background="#FFFFFF"
+                                        CornerRadius="50"
+                                        Opacity="0.1" />
+                                </Canvas>
+                            </Grid>
+                        </Border>
+                    </md:TransitioningContent>
                 </DataTemplate>
 
             </ItemsControl.ItemTemplate>
@@ -103,118 +106,124 @@
 
         </ItemsControl>
 
+
+
+        <!--    -->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Border
-                Margin="10"
-                Background="#4DBEBEBE"
-                CornerRadius="10">
-                <DockPanel>
-                    <DockPanel
-                        Margin="10,5"
-                        DockPanel.Dock="Top"
-                        LastChildFill="False">
 
-                        <TextBlock
-                            FontSize="20"
-                            FontWeight="Bold"
-                            Foreground="{StaticResource WhiteBrush}"
-                            Text="待办事项" />
-                        <Button
-                            Width="30"
-                            Height="30"
-                            VerticalAlignment="Top"
-                            DockPanel.Dock="Right"
-                            Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-                            <materialDesign:PackIcon Kind="Add" />
-                        </Button>
+            <!--    -->
+            <md:TransitioningContent OpeningEffect="{md:TransitionEffect Kind=FadeIn, Duration=0:0:1}">
+                <Border
+                    Margin="10"
+                    Background="#4DBEBEBE"
+                    CornerRadius="10">
+                    <DockPanel>
+                        <DockPanel
+                            Margin="10,5"
+                            DockPanel.Dock="Top"
+                            LastChildFill="False">
+
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Text="待办事项" />
+                            <Button
+                                Width="30"
+                                Height="30"
+                                VerticalAlignment="Top"
+                                DockPanel.Dock="Right"
+                                Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
+                                <materialDesign:PackIcon Kind="Add" />
+                            </Button>
+                        </DockPanel>
+
+
+
+                        <ListBox
+                            HorizontalContentAlignment="Stretch"
+                            ItemsSource="{Binding ToDoDtos}"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel MaxHeight="80" LastChildFill="False">
+                                        <ToggleButton DockPanel.Dock="Right" />
+                                        <StackPanel>
+                                            <TextBlock
+                                                FontSize="16"
+                                                FontWeight="Bold"
+                                                Text="{Binding Title}" />
+                                            <TextBlock
+                                                Margin="0,5"
+                                                Opacity="0.5"
+                                                Text="{Binding Content}" />
+                                        </StackPanel>
+
+                                    </DockPanel>
+                                </DataTemplate>
+
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </DockPanel>
+                </Border>
+            </md:TransitioningContent>
 
+            <md:TransitioningContent Grid.Column="1" OpeningEffect="{md:TransitionEffect Kind=FadeIn, Duration=0:0:1}">
+                <Border
+                    Margin="10"
+                    Background="#4DBEBEBE"
+                    CornerRadius="10">
+                    <DockPanel>
+                        <DockPanel
+                            Margin="10,5"
+                            DockPanel.Dock="Top"
+                            LastChildFill="False">
 
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Text="备忘录" />
+                            <Button
+                                Width="30"
+                                Height="30"
+                                VerticalAlignment="Top"
+                                DockPanel.Dock="Right"
+                                Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
+                                <materialDesign:PackIcon Kind="Add" />
+                            </Button>
+                        </DockPanel>
+                        <ListBox
+                            HorizontalContentAlignment="Stretch"
+                            ItemsSource="{Binding MemoDtos}"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel MaxHeight="80" LastChildFill="False">
+                                        <ToggleButton DockPanel.Dock="Right" />
+                                        <StackPanel>
+                                            <TextBlock
+                                                FontSize="16"
+                                                FontWeight="Bold"
+                                                Text="{Binding Title}" />
+                                            <TextBlock
+                                                Margin="0,5"
+                                                Opacity="0.5"
+                                                Text="{Binding Content}" />
+                                        </StackPanel>
 
-                    <ListBox
-                        HorizontalContentAlignment="Stretch"
-                        ItemsSource="{Binding ToDoDtos}"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <DockPanel MaxHeight="80" LastChildFill="False">
-                                    <ToggleButton DockPanel.Dock="Right" />
-                                    <StackPanel>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Text="{Binding Title}" />
-                                        <TextBlock
-                                            Margin="0,5"
-                                            Opacity="0.5"
-                                            Text="{Binding Content}" />
-                                    </StackPanel>
+                                    </DockPanel>
+                                </DataTemplate>
 
-                                </DockPanel>
-                            </DataTemplate>
-
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-            </Border>
-
-
-
-            <Border
-                Grid.Column="1"
-                Margin="10"
-                Background="#4DBEBEBE"
-                CornerRadius="10">
-                <DockPanel>
-                    <DockPanel
-                        Margin="10,5"
-                        DockPanel.Dock="Top"
-                        LastChildFill="False">
-
-                        <TextBlock
-                            FontSize="20"
-                            FontWeight="Bold"
-                            Foreground="{StaticResource WhiteBrush}"
-                            Text="备忘录" />
-                        <Button
-                            Width="30"
-                            Height="30"
-                            VerticalAlignment="Top"
-                            DockPanel.Dock="Right"
-                            Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-                            <materialDesign:PackIcon Kind="Add" />
-                        </Button>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </DockPanel>
-                    <ListBox
-                        HorizontalContentAlignment="Stretch"
-                        ItemsSource="{Binding MemoDtos}"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <DockPanel MaxHeight="80" LastChildFill="False">
-                                    <ToggleButton DockPanel.Dock="Right" />
-                                    <StackPanel>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Text="{Binding Title}" />
-                                        <TextBlock
-                                            Margin="0,5"
-                                            Opacity="0.5"
-                                            Text="{Binding Content}" />
-                                    </StackPanel>
-
-                                </DockPanel>
-                            </DataTemplate>
-
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-            </Border>
+                </Border>
+            </md:TransitioningContent>
         </Grid>
 
     </Grid>
