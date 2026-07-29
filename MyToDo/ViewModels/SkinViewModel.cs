@@ -1,4 +1,5 @@
 ﻿using MaterialDesignColors;
+using MaterialDesignColors.ColorManipulation;
 using MaterialDesignThemes.Wpf;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MyToDo.ViewModels
 {
@@ -26,7 +28,7 @@ namespace MyToDo.ViewModels
             {
                 if(SetProperty(ref _isDarkTheme, value)) 
                 {
-                    ModifyTheme(Theme => Theme.SetBaseTheme(value ? Theme.Dark : Theme.Light));
+                    ModifyTheme(theme => theme.SetBaseTheme(value ? Theme.Dark : Theme.Light));
                 }
             }
         }
@@ -40,14 +42,18 @@ namespace MyToDo.ViewModels
 
 
      
+        private readonly PaletteHelper paletteHelper = new PaletteHelper();
+
         private void ChangeHue(object obj)
         {
             var hue = (Color)obj;
             ITheme theme = paletteHelper.GetTheme();
 
-            theme.PrimaryLight=new ColorPair(hue.Lighten());
-            theme.PrimaryMid = new ColorPair(hue());
-            theme.PrimaryDark = new ColorPair(hue.Darken());
+            theme.PrimaryLight = new ColorPair(hue.Lighten(1));
+            theme.PrimaryMid = new ColorPair(hue);
+            theme.PrimaryDark = new ColorPair(hue.Darken(1));
+
+            paletteHelper.SetTheme(theme);
         }
 
         private static void ModifyTheme(Action<ITheme>modificationAction)
@@ -55,7 +61,7 @@ namespace MyToDo.ViewModels
             var paletteHelper = new PaletteHelper();
             ITheme theme =paletteHelper.GetTheme();
 
-            modificationAction? Invoke(theme);
+            modificationAction?.Invoke(theme);
 
             paletteHelper.SetTheme(theme);
         }

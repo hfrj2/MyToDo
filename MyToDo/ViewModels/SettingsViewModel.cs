@@ -53,7 +53,7 @@ namespace MyToDo.ViewModels
         void CreateMenuBar()
         {
             MenuBars.Add(new MenuBar() { Icon = "Home ", Title = "个性化 ", NameSpace = "SkinView" });
-            MenuBars.Add(new MenuBar() { Icon = "NotebookOutline ", Title = "系统设置 ", NameSpace = "ToDoView" });
+            MenuBars.Add(new MenuBar() { Icon = "NotebookOutline ", Title = "系统设置 ", NameSpace = "" });
             MenuBars.Add(new MenuBar() { Icon = "NotebookPlus ", Title = "关于更多 ", NameSpace = "AboutView" });
             
         }

@@ -10,7 +10,9 @@
     d:Height="450"
     d:Width="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="{DynamicResource MaterialDesignBackground}"
     FontFamily="仿宋"
+    TextElement.Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
     mc:Ignorable="d">
     <UserControl.Resources>
         <SolidColorBrush x:Key="WhiteBrush" Color="White" />
@@ -25,8 +27,8 @@
         <TextBlock
             Margin="15,10"
             FontSize="22"
-            Foreground="White"
-            Text="你好，痕迹！ 今天是2021-08-28  星期六" />
+            Text="你好，痕迹！ 今天是2021-08-28  星期六"
+            Foreground="{StaticResource WhiteBrush}"/>
 
         <ItemsControl Grid.Row="1" ItemsSource="{Binding TaskBars}">
             <ItemsControl.ItemsPanel>
