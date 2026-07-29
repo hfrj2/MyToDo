@@ -10,9 +10,9 @@
     d:Height="450"
     d:Width="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="{DynamicResource MaterialDesignBackground}"
     FontFamily="仿宋"
-          TextElement.Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
-               Background="{DynamicResource MaterialDesignBackground}"
+    TextElement.Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
     mc:Ignorable="d">
     <UserControl.Resources>
         <SolidColorBrush x:Key="WhiteBrush" Color="White" />
@@ -35,7 +35,6 @@
                         DockPanel.Dock="Top"
                         FontSize="22"
                         FontWeight="Bold"
-                        Foreground="{StaticResource WhiteBrush}"
                         Text="添加待办" />
 
                     <!--  状态选择  -->
@@ -46,9 +45,8 @@
                         <TextBlock
                             Margin="0,0,10,0"
                             VerticalAlignment="Center"
-                            Foreground="{StaticResource WhiteBrush}"
                             Text="状态： " />
-                        <ComboBox Width="60" Foreground="{StaticResource WhiteBrush}">
+                        <ComboBox Width="60">
                             <ComboBoxItem>待办</ComboBoxItem>
                             <ComboBoxItem>已完成</ComboBoxItem>
                         </ComboBox>
@@ -60,8 +58,7 @@
                         Padding="5"
                         md:HintAssist.Hint="请输入待办概要"
                         DockPanel.Dock="Top"
-                        FontSize="16"
-                        Foreground="{StaticResource WhiteBrush}" />
+                        FontSize="16" />
 
 
                     <TextBox
@@ -72,7 +69,6 @@
                         AcceptsReturn="True"
                         DockPanel.Dock="Top"
                         FontSize="16"
-                        Foreground="{StaticResource WhiteBrush}"
                         TextWrapping="Wrap" />
 
 
@@ -111,7 +107,7 @@
                         FontSize="18"
                         Foreground="White"
                         Text="筛选:  " />
-                    <ComboBox Foreground="White" SelectedIndex="0">
+                    <ComboBox SelectedIndex="0">
                         <ComboBoxItem>全部</ComboBoxItem>
                         <ComboBoxItem>待办</ComboBoxItem>
                         <ComboBoxItem>已完成</ComboBoxItem>
@@ -166,10 +162,7 @@
                                             CornerRadius="10" />
 
 
-                                        <md:PopupBox
-                                            HorizontalAlignment="Right"
-                                            Panel.ZIndex="1"
-                                            Foreground="White">
+                                        <md:PopupBox HorizontalAlignment="Right" Panel.ZIndex="1">
                                             <Button Content="删除" />
                                         </md:PopupBox>
 
@@ -177,13 +170,11 @@
                                             Padding="10"
                                             FontSize="18"
                                             FontWeight="Bold"
-                                            Foreground="{StaticResource WhiteBrush}"
                                             Text="{Binding Title}" />
                                         <TextBlock
                                             Grid.Row="1"
                                             Padding="10,5"
                                             FontSize="18"
-                                            Foreground="{StaticResource WhiteBrush}"
                                             Text="{Binding Content}" />
 
 

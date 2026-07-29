@@ -33,7 +33,7 @@
                         DockPanel.Dock="Top"
                         FontSize="22"
                         FontWeight="Bold"
-                        Foreground="{StaticResource WhiteBrush}"
+                      
                         Text="添加备忘录" />
 
                     <!--  状态选择  -->
@@ -44,9 +44,9 @@
                         <TextBlock
                             Margin="0,0,10,0"
                             VerticalAlignment="Center"
-                            Foreground="{StaticResource WhiteBrush}"
+                          
                             Text="状态： " />
-                        <ComboBox Width="60" Foreground="{StaticResource WhiteBrush}">
+                        <ComboBox Width="60" >
                             <ComboBoxItem>待办</ComboBoxItem>
                             <ComboBoxItem>已完成</ComboBoxItem>
                         </ComboBox>
@@ -59,7 +59,7 @@
                         md:HintAssist.Hint="请输入备忘录概要"
                         DockPanel.Dock="Top"
                         FontSize="16"
-                        Foreground="{StaticResource WhiteBrush}" />
+                        />
 
 
                     <TextBox
@@ -70,7 +70,7 @@
                         AcceptsReturn="True"
                         DockPanel.Dock="Top"
                         FontSize="16"
-                        Foreground="{StaticResource WhiteBrush}"
+                       
                         TextWrapping="Wrap" />
 
 

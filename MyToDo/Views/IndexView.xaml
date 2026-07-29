@@ -27,8 +27,8 @@
         <TextBlock
             Margin="15,10"
             FontSize="22"
-            Text="你好，痕迹！ 今天是2021-08-28  星期六"
-            Foreground="{StaticResource WhiteBrush}"/>
+            Foreground="{StaticResource WhiteBrush}"
+            Text="你好，痕迹！ 今天是2021-08-28  星期六" />
 
         <ItemsControl Grid.Row="1" ItemsSource="{Binding TaskBars}">
             <ItemsControl.ItemsPanel>
@@ -132,7 +132,6 @@
                             <TextBlock
                                 FontSize="20"
                                 FontWeight="Bold"
-                                Foreground="{StaticResource WhiteBrush}"
                                 Text="待办事项" />
                             <Button
                                 Width="30"
@@ -188,7 +187,6 @@
                             <TextBlock
                                 FontSize="20"
                                 FontWeight="Bold"
-                                Foreground="{StaticResource WhiteBrush}"
                                 Text="备忘录" />
                             <Button
                                 Width="30"
